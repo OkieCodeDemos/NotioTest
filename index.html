@@ -65,20 +65,33 @@
       cursor: pointer;
     }
 
-    /* Logout button (top-right, replaces banner) */
+    /* Logout button (replaces banner) */
     #logout {
       position: fixed;
-      top: 10px;
-      right: 10px;
+      top: 0;
+      right: 0;
       z-index: 10000;
 
-      padding: 8px 14px;
-      font-size: 13px;
+      width: 170px;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
 
       background: #ffffff;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 0 0 0 6px;
+
+      transition: background 0.2s ease;
+    }
+
+    #logout:hover {
+      background: #f2f2f2;
     }
   </style>
 </head>
@@ -123,7 +136,7 @@
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Auth state handling
+    // Auth state
     auth.onAuthStateChanged(user => {
       if (user) {
         document.getElementById("login").style.display = "none";
@@ -134,7 +147,7 @@
       }
     });
 
-    // Login function
+    // Login
     function login() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;

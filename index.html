@@ -16,19 +16,18 @@
     /* Hide iframe until logged in */
     #content {
       display: none;
-      /* Make it scrollable since there are now two iframes vertically */
+      /* Make it scrollable */
       height: 100vh;
       overflow-y: auto;
     }
 
-    /* Remove fixed positioning, let iframes stack */
     iframe {
       width: 100%;
-      max-width: 900px; /* match your new iframe width */
+      max-width: 900px;
       height: 500px;
       border: none;
       display: block;
-      margin: 10px auto; /* center horizontally and add vertical spacing */
+      margin: 10px auto;
       z-index: 1;
     }
 
@@ -69,28 +68,23 @@
       cursor: pointer;
     }
 
-    /* Logout button (kept for later use) */
+    /* Logout button */
     #logout {
       position: fixed;
       top: 0;
       right: 0;
       z-index: 10000;
-
       width: 165px;
       height: 40px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-
       background: #ffffff;
       border: 1px solid #ccc;
       border-radius: 0 0 0 6px;
-
       transition: background 0.2s ease;
     }
 
@@ -117,15 +111,6 @@
     <iframe
       src="https://silly-elm-333.notion.site/ebd//2dba434ef3f2808cbbeed01cdf93e82a"
       sandbox="allow-scripts allow-same-origin">
-    </iframe>
-
-    <!-- Updated Coda iframe -->
-    <iframe 
-      src="https://coda.io/embed/Decy9oBOCg/_sunuF1FC?hideSections=true" 
-      width="900" 
-      height="500" 
-      style="max-width: 100%;" 
-      allow="fullscreen">
     </iframe>
 
     <button id="logout">Logout</button>
@@ -170,7 +155,7 @@
         .catch(err => alert(err.message));
     }
 
-    // Logout function (kept for later)
+    // Logout function
     document.getElementById("logout").onclick = () => {
       auth.signOut();
     };
